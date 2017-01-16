@@ -1,0 +1,47 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1348\cocoasubrtf170
+{\fonttbl\f0\froman\fcharset0 TimesNewRomanPSMT;}
+{\colortbl;\red255\green255\blue255;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\ri0\sl320\qr
+
+\f0\fs24 \cf0 Tanzeela Khan\
+204577214\
+\pard\pardeftab720\ri0\sl320\qc
+\cf0 Homework #1\
+\pard\pardeftab720\ri0\sl320
+\cf0 \
+2.71)\
+\pard\pardeftab720\li720\ri0\sl320
+\cf0 a) \'a0His function does not work with negative numbers because it does not account for sign extension.\
+b)\
+int xbyte(packed_t word, int bytenum)\
+\{\
+	int extract = (word>>(bytenum<<3) & 0xFF;\
+	int signbit = 0x80 & extract; //will only save sign bit\
+	signbit = (signbit <<24) >>24; //sign extends\
+	return (signbit | extract); //combines\
+\}\
+\pard\pardeftab720\ri0\sl320
+\cf0 \
+2.82)\
+\pard\pardeftab720\li720\ri0\sl320
+\cf0 a) (x < y) == (-x > -y)\
+The expression returns 0 when x is Tmin. Since -2^n <= x <= 2^n-1, Tmin\'92s negation causes overflow, so the right hand side of the expression will evaluate to false.\
+b) The expression always returns 1 because the left hand side equals the right hand side arithmetically.\
+\pard\pardeftab720\li720\fi720\ri0\sl320
+\cf0 ((x+y) << 4) + y - x == 16 * y + 15 * x\
+(x+4) * 16 + y - x == 16 * y + 15 * x\
+16 * y + 15 * x == 16 * y + 15 * x\
+\pard\pardeftab720\li720\ri0\sl320
+\cf0 c) The expression always returns 1 because expression can be arithmetically proven below:\
+	-(x + y) = -x - y\
+	~(x+y)+1 = ~x+1+~y+1\
+	~(x+y) = ~x+~y+1\
+d) The expression always returns 1 because the left hand side equals the right hand side arithmetically.\
+	(ux - uy) == -(unsigned)(y-x)\
+	(ux - uy) == (unsigned)(x-y)\
+	(ux - uy) = (ux - uy)\
+e) ((x>>2)<<2) <= x\
+The expression always returns 1 because x will always lose the lowest two bits. If these have 1s, the left hand side will be less than the original x. If these are all 0s, the left hand side will be equal to the original x.\
+}

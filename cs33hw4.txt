@@ -1,0 +1,6 @@
+CS33 HW 4		Tanzeela Khan
+			204577214
+			5/2/16
+1)	The value of i is: 7
+2)	c. xiyj
+	This is the worst ordering because the cache goes up by size per iteration, making it take longer to find the next element since it is not likely in the cache. e. jyix is column-wise based, but only goes up by one per iteration for the inner loop, meaning that the cache would store elements around that area. 

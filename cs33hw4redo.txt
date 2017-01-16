@@ -1,0 +1,47 @@
+.globl main 507461680a
+main:
+ addu $s7, $0, $ra //s7 = ra
+ add $s3, $0, $0 //s3 = 0
+ addi $s4, $0, 1 //s4 = 1 (print int)
+ add $s5, $0, $0 //s5 = 0
+ la $s6, save //s6 = address of array
+ .data
+ .align 2
+ .globl save
+# the next line creates an array of 10 words that can be referred to
+as “save”
+# the array is initialized to the 10 values after .word
+# so the first array entry is a 0 and the last entry is a 2
+save: .word 0, 0, 0, 0, 0, 0, 0, 6, 3, 2
+ .text
+Loop:
+ add $t8, $s3, $s3 //t8 = 0, 2
+ add $t8, $t8, $t8 //t8 = 0, 4
+ add $t8, $t8, $s6 // t8 = *save + 4 //4 bytes
+ lw $t9, 0($t8) //t9 = *t8
+ bne $t9, $s5, Exit // = 0
+ add $s3, $s3, $s4 //s3 = 1, 2, 
+ j Loop
+Exit:
+ .data
+ .globl message1
+message1: .asciiz "\nThe value of i is: "
+ .text
+ li $v0, 4
+ la $a0, message1
+ syscall
+ li $v0, 1
+ add $a0, $0, $s3
+ syscall
+
+ addu $ra, $0, $s7
+ jr $ra
+ add $0, $0, $0 
+
+floating
+def of linking dynamo link vs stats
+global var and static var stored
+pragma
+mips
+parall prgming omp for, blocking
+magic 8 ball
